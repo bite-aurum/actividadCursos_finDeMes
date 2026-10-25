@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.2.0"
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -41,7 +41,6 @@ dependencies {
     implementation(libs.material)
     // Kotlin Serialization JSON
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
-
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
 
