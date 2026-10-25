@@ -38,6 +38,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.recyclerview)
     implementation(libs.material)
     // Kotlin Serialization JSON
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
