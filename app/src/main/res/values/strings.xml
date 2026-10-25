@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Cursos</string>
+<<<<<<< Updated upstream
+=======
+    <string name="btnVerRegistros">Ver registros</string>
+    <string name="txtTitulo">REGISTRO AL CURSO</string>
+    <string name="txtInscripcion">INSCRIPCIÓN</string>
+    <string name="txmatricula">MATRÍCULA DEL ALUMNO:</string>
+    <string name="txFecha">FECHA DE REGISTRO:</string>
+    <string name="txCorreo">CORREO INSTITUCIONAL:</string>
+    <string name="btnConfirmar">CONFIRMAR INSCRIPCIÓN</string>
+    <string name="btnCancelar">CANCELAR</string>
+    <string name="titulo_registro">Programación Avanzada</string>
+
+    <!-- Vista Detalle -->
+    <string name="btn_back">BACK</string>
+    <string name="txt_nombre_curso">Nombre del Curso</string>
+    <string name="txt_codigo_curso">Código del Curso</string>
+    <string name="txt_descripcion_curso">Descripción:</string>
+    <string name="txt_espacio_curso">Espacio:</string>
+    <string name="txt_total_horas">Total de Horas:</string>
+    <string name="txt_dias_horario">Días de Atención:</string>
+>>>>>>> Stashed changes
 </resources>
