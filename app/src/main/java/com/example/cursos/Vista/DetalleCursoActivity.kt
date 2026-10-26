@@ -15,7 +15,7 @@ import com.example.cursos.Presentador.IDetalleCursoVista
 import com.example.cursos.Presentador.clsDetalleCursoPresentador
 import com.example.cursos.R
 
-class DetalleCursoActivity : AppCompatActivity(), IDetalleCursoVista {
+class DetalleCursoActivity : AppCompatActivity(), DetalleCursoVista {
 
     private lateinit var presentador: clsDetalleCursoPresentador
     private lateinit var imgDetalleCurso: ImageView
@@ -37,12 +37,9 @@ class DetalleCursoActivity : AppCompatActivity(), IDetalleCursoVista {
         txtEspacioCurso = findViewById(R.id.txtEspacioCurso)
         txtTotalHoras = findViewById(R.id.txtTotalHoras)
         txtDiasHorario = findViewById(R.id.txtDiasHorario)
-
         findViewById<Button>(R.id.btnBack).setOnClickListener { finish() }
-
         presentador = clsDetalleCursoPresentador(this)
 
-        // El ID lo manda la pantalla del Catálogo con putExtra
         val idCurso = intent.getIntExtra("id_curso", -1)
         if (idCurso != -1) presentador.cargarDetalle(idCurso)
         else mostrarError("Curso no válido")
@@ -51,23 +48,16 @@ class DetalleCursoActivity : AppCompatActivity(), IDetalleCursoVista {
     override fun mostrarDetalle(curso: dataCursoDetalle) {
         txtNombreCurso.text = curso.nombre
         txtCodigoCurso.text = "Código: ${curso.codigo}"
+        txtDescripcionCurso.text = getString(R.string.txt_descripcion_curso) + "\n" + curso.descripcion
+        txtEspacioCurso.text = getString(R.string.txt_espacio_curso) + "\n" + "${curso.edificio}, Salón ${curso.salon}"
+        txtTotalHoras.text = getString(R.string.txt_total_horas) + "\n" + "${curso.totalHoras} Horas"
 
-        txtDescripcionCurso.text =
-            getString(R.string.txt_descripcion_curso) + "\n" + curso.descripcion
-
-        txtEspacioCurso.text =
-            getString(R.string.txt_espacio_curso) + "\n" + "${curso.edificio}, Salón ${curso.salon}"
-
-        txtTotalHoras.text =
-            getString(R.string.txt_total_horas) + "\n" + "${curso.totalHoras} Horas"
-
-        // "10:00:00" -> "10:00"
         val inicio = curso.horaInicio.take(5)
         val fin = curso.horaFin.take(5)
-        txtDiasHorario.text =
-            getString(R.string.txt_dias_horario) + "\n" + "${curso.diasAtencion}\n($inicio - $fin hrs)"
+        txtDiasHorario.text = getString(R.string.txt_dias_horario) + "\n" + "${curso.diasAtencion}\n($inicio - $fin hrs)"
 
-        if (curso.imagen.isNotEmpty()) {
+        if (curso.imagen.isNotEmpty())
+        {
             Glide.with(this).load(curso.imagen).into(imgDetalleCurso)
         }
     }
