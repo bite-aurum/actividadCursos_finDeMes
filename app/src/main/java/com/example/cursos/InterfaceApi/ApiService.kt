@@ -1,9 +1,16 @@
 package com.example.cursos.InterfaceApi
 
+import com.example.cursos.Modelo.dataCarreras
 import com.example.cursos.Modelo.dataCursos
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface ApiService {
     @GET("obtener_carreras.php")
-    suspend fun obtenerCarrera(): List<dataCursos>
+    suspend fun obtenerCarrera(): List<dataCarreras>
+
+    @GET("obtener_cursos.php")
+    suspend fun obtenerCursos(
+        @Query("id_carrera") idCarrera: Int = 0
+    ): List<dataCursos>
 }
