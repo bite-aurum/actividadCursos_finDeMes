@@ -1,6 +1,7 @@
 package com.example.cursos.InterfaceApi
 
 import com.example.cursos.Modelo.dataCarreras
+import com.example.cursos.Modelo.dataCursoDetalle
 import com.example.cursos.Modelo.dataCursos
 import com.example.cursos.Modelo.dataRegistroRequest
 import com.example.cursos.Modelo.dataRespuesta
@@ -21,4 +22,9 @@ interface ApiService {
     suspend fun registrarInscripcion(
         @Body request: dataRegistroRequest
     ): dataRespuesta
+
+    @GET("detalle_curso.php")
+    suspend fun obtenerDetalleCurso(
+        @Query("id_curso") idCurso: Int
+    ): dataCursoDetalle
 }
