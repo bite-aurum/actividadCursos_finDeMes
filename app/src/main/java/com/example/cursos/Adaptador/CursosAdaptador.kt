@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.cursos.MainActivity
 import com.example.cursos.Modelo.dataCursos
 import com.example.cursos.R
-
+import android.widget.Button
 class CursosAdaptador(
     private var activity: MainActivity,
     private var listaCursos: List<dataCursos>
@@ -20,6 +20,7 @@ class CursosAdaptador(
         val tvNombreCurso: TextView = itemView.findViewById(R.id.tvNombreCurso)
         val tvSalon: TextView = itemView.findViewById(R.id.tvSalon)
         val imgCurso: ImageView = itemView.findViewById(R.id.imgCurso)
+        val btnRegistrarse: Button = itemView.findViewById(R.id.btnRegistrarse)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CursoViewHolder {
@@ -40,7 +41,9 @@ class CursosAdaptador(
                 .error(android.R.drawable.stat_notify_error)
                 .into(holder.imgCurso)
         }
-
+        holder.btnRegistrarse.setOnClickListener {
+            activity.abrirRegistroCurso(curso)
+        }
         holder.itemView.setOnClickListener {
             activity.mostrarDetalleCurso(curso)
         }
