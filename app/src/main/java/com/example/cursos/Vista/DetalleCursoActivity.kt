@@ -1,10 +1,18 @@
 package com.example.cursos.Vista
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
+import com.example.cursos.Modelo.dataCursoDetalle
+import com.example.cursos.Presentador.IDetalleCursoVista
+import com.example.cursos.Presentador.clsDetalleCursoPresentador
 import com.example.cursos.R
 
 class DetalleCursoActivity : AppCompatActivity(), IDetalleCursoVista {
@@ -30,7 +38,6 @@ class DetalleCursoActivity : AppCompatActivity(), IDetalleCursoVista {
         txtTotalHoras = findViewById(R.id.txtTotalHoras)
         txtDiasHorario = findViewById(R.id.txtDiasHorario)
 
-        // Botón BACK: cierra esta pantalla y regresa al catálogo
         findViewById<Button>(R.id.btnBack).setOnClickListener { finish() }
 
         presentador = clsDetalleCursoPresentador(this)
@@ -45,26 +52,23 @@ class DetalleCursoActivity : AppCompatActivity(), IDetalleCursoVista {
         txtNombreCurso.text = curso.nombre
         txtCodigoCurso.text = "Código: ${curso.codigo}"
 
-        // etiqueta del strings.xml + salto de línea + dato de la API
         txtDescripcionCurso.text =
-            getString(R.string.txt_descripcion_curso) + "\n" + (curso.descripcion ?: "Sin descripción")
+            getString(R.string.txt_descripcion_curso) + "\n" + curso.descripcion
 
         txtEspacioCurso.text =
-            getString(R.string.txt_espacio_curso) + "\n" + "${curso.edificio ?: ""}, Salón ${curso.salon}"
+            getString(R.string.txt_espacio_curso) + "\n" + "${curso.edificio}, Salón ${curso.salon}"
 
         txtTotalHoras.text =
             getString(R.string.txt_total_horas) + "\n" + "${curso.totalHoras} Horas"
 
         // "10:00:00" -> "10:00"
-        val inicio = curso.horaInicio.substring(0, 5)
-        val fin = curso.horaFin.substring(0, 5)
+        val inicio = curso.horaInicio.take(5)
+        val fin = curso.horaFin.take(5)
         txtDiasHorario.text =
             getString(R.string.txt_dias_horario) + "\n" + "${curso.diasAtencion}\n($inicio - $fin hrs)"
 
-        if (curso.imagen != null) {
-            Glide.with(this)
-                .load(RetrofitCliente.BASE_URL + curso.imagen)
-                .into(imgDetalleCurso)
+        if (curso.imagen.isNotEmpty()) {
+            Glide.with(this).load(curso.imagen).into(imgDetalleCurso)
         }
     }
 
