@@ -10,4 +10,13 @@
     <string name="btnCancelar">CANCELAR</string>
     <string name="titulo_registro">Programación Avanzada</string>
 
+    <!-- Textos para la Vista Detalle -->
+    <string name="btn_back">BACK</string>
+    <string name="txt_nombre_curso">Nombre del Curso</string>
+    <string name="txt_codigo_curso">Código del Curso</string>
+    <string name="txt_descripcion_curso">Descripción:</string>
+    <string name="txt_espacio_curso">Espacio:</string>
+    <string name="txt_total_horas">Total de Horas:</string>
+    <string name="txt_dias_horario">Días de Atención:</string>
+
 </resources>
