@@ -5,11 +5,10 @@ import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
-import kotlin.lazy
 
 
 object RetrofitCliente {
-    private const val BASE_URL = "http://192.168.1.68/cursos_api/"
+    private const val BASE_URL = "http://10.89.125.160/cursos_api/"
     private val jsonConfig = Json{
         ignoreUnknownKeys = true
         coerceInputValues = true
