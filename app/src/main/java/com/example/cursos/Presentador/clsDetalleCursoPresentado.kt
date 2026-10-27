@@ -13,7 +13,6 @@ class clsDetalleCursoPresentador(private val vista: DetalleCursoActivity) {
     fun cargarDetalle(cursoId: Int) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
-                // Aquí se consume obtenerDetalleCurso del modelo
                 val curso: dataCursoDetalle = modelo.obtenerDetalleCurso(cursoId)
                 vista.mostrarDetalle(curso)
             } catch (e: Exception) {

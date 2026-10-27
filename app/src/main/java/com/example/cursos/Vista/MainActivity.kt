@@ -18,6 +18,7 @@ import com.example.cursos.Adaptador.CursosAdaptador
 import com.example.cursos.Modelo.dataCarreras
 import com.example.cursos.Modelo.dataCursos
 import com.example.cursos.Presentador.clsCatalogoCursosPresentador
+import com.example.cursos.Vista.DetalleCursoActivity
 import com.example.cursos.Vista.RegistroCursoActivity
 
 class MainActivity : AppCompatActivity() {
@@ -65,7 +66,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun mostrarDetalleCurso(curso: dataCursos) {
-        Toast.makeText(this, "Seleccionaste: ${curso.nombre}", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, DetalleCursoActivity::class.java).apply {
+            putExtra("ID_CURSO", curso.id)
+            putExtra("NOMBRE_CURSO", curso.nombre)
+            putExtra("CODIGO_CURSO", curso.codigo)
+            putExtra("IMAGEN_CURSO", curso.imagen)
+        }
+        startActivity(intent)
     }
 
     fun mostrarError(mensaje: String) {

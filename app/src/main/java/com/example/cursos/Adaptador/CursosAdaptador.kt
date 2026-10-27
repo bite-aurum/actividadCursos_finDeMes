@@ -21,6 +21,7 @@ class CursosAdaptador(
         val tvSalon: TextView = itemView.findViewById(R.id.tvSalon)
         val imgCurso: ImageView = itemView.findViewById(R.id.imgCurso)
         val btnRegistrarse: Button = itemView.findViewById(R.id.btnRegistrarse)
+        val btnVerDetalle: Button = itemView.findViewById(R.id.btnVerDetalle)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CursoViewHolder {
@@ -44,6 +45,11 @@ class CursosAdaptador(
         holder.btnRegistrarse.setOnClickListener {
             activity.abrirRegistroCurso(curso)
         }
+
+        holder.btnVerDetalle.setOnClickListener {
+            activity.mostrarDetalleCurso(curso)
+        }
+
         holder.itemView.setOnClickListener {
             activity.mostrarDetalleCurso(curso)
         }
