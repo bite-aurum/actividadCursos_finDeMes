@@ -8,8 +8,8 @@ import retrofit2.Retrofit
 import kotlin.lazy
 
 
-object RetrofitCliente {
-    private const val BASE_URL = "http://192.168.1.111/cursos_api/"
+object RetrofitCliente{
+    private const val BASE_URL = "http://192.168.56.1/cursos_api/"
     private val jsonConfig = Json{
         ignoreUnknownKeys = true
         coerceInputValues = true
