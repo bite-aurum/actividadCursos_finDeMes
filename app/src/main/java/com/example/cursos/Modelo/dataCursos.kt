@@ -17,5 +17,6 @@ data class dataCursos(
     @SerialName("hora_inicio") val horaInicio: String = "",
     @SerialName("hora_fin") val horaFin: String = "",
     @SerialName("cupo_total") val cupoTotal: Int = 0,
-    @SerialName("id_carrera") val idCarrera: Int = 0
+    @SerialName("id_carrera") val idCarrera: Int = 0,
+    @SerialName("inscritos") val inscritos: Int = 0
 )
