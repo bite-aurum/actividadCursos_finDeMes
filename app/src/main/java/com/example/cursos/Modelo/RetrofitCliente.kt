@@ -9,7 +9,7 @@ import kotlin.lazy
 
 
 object RetrofitCliente {
-    private const val BASE_URL = "http://192.168.1.39/cursos_api/"
+    private const val BASE_URL = "http://10.75.1.98:8080/cursos_api/"
     private val jsonConfig = Json{
         ignoreUnknownKeys = true
         coerceInputValues = true
@@ -25,4 +25,10 @@ object RetrofitCliente {
 
 
     }
+}
+fun obtenerUrlImagen(imagen: String?): String {
+    if (imagen.isNullOrEmpty()) return ""
+    if (imagen.startsWith("http://") || imagen.startsWith("https://")) return imagen
+    val ruta = if (imagen.startsWith("img/")) imagen else "img/$imagen"
+    return "http://10.75.1.98:8080/cursos_api/$ruta"
 }

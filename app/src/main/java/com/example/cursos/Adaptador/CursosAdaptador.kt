@@ -11,6 +11,8 @@ import com.example.cursos.MainActivity
 import com.example.cursos.Modelo.dataCursos
 import com.example.cursos.R
 import android.widget.Button
+import com.example.cursos.Modelo.obtenerUrlImagen
+
 class CursosAdaptador(
     private var activity: MainActivity,
     private var listaCursos: List<dataCursos>
@@ -34,14 +36,14 @@ class CursosAdaptador(
         val curso = listaCursos[position]
         holder.tvNombreCurso.text = curso.nombre
         holder.tvSalon.text = "Salón: ${curso.salon}"
-
         if (!curso.imagen.isNullOrEmpty()) {
             Glide.with(holder.itemView.context)
-                .load(curso.imagen)
+                .load(obtenerUrlImagen(curso.imagen))
                 .placeholder(android.R.drawable.ic_menu_gallery)
                 .error(android.R.drawable.stat_notify_error)
                 .into(holder.imgCurso)
         }
+
         holder.btnRegistrarse.setOnClickListener {
             activity.abrirRegistroCurso(curso)
         }

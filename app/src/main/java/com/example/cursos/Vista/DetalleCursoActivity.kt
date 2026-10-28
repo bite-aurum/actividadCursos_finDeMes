@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.example.cursos.Modelo.dataCursoDetalle
+import com.example.cursos.Modelo.obtenerUrlImagen
 import com.example.cursos.Presentador.clsDetalleCursoPresentador
 import com.example.cursos.R
 
@@ -54,9 +55,8 @@ class DetalleCursoActivity : AppCompatActivity(){
         txtNombreCurso.text = nombre
         txtCodigoCurso.text = "Código: " + codigo
 
-        if (imagen.isNotEmpty())
-        {
-            Glide.with(this).load(imagen).into(imgDetalleCurso)
+        if (imagen.isNotEmpty()) {
+            Glide.with(this).load(obtenerUrlImagen(imagen)).into(imgDetalleCurso)
         }
         presentador = clsDetalleCursoPresentador(this)
 
