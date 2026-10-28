@@ -18,6 +18,7 @@ interface ApiService {
     suspend fun obtenerCursos(
         @Query("id_carrera") idCarrera: Int = 0
     ): List<dataCursos>
+
     @POST("registrar_inscripcion.php")
     suspend fun registrarInscripcion(
         @Body request: dataRegistroRequest
@@ -27,4 +28,9 @@ interface ApiService {
     suspend fun obtenerDetalleCurso(
         @Query("id_curso") idCurso: Int
     ): dataCursoDetalle
+
+    @GET("obtener_inscripciones.php")
+    suspend fun obtenerInscripciones(
+        @Query("id_carrera") idCarrera: Int = 0
+    ): List<dataCursos>
 }
