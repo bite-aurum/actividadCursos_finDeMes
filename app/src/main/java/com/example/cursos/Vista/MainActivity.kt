@@ -95,8 +95,10 @@ class MainActivity : AppCompatActivity() {
 
     fun abrirRegistroCurso(curso: dataCursos) {
         val intent = Intent(this, RegistroCursoActivity::class.java).apply {
-            putExtra("ID_CURSO", curso.id)
+
+            putExtra("CURSO_ID", curso.id)
             putExtra("NOMBRE_CURSO", curso.nombre)
+            putExtra("IMAGEN_CURSO", curso.imagen)
         }
         startActivity(intent)
     }

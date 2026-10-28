@@ -20,6 +20,7 @@ import com.example.cursos.Modelo.dataCarreras
 import com.example.cursos.Modelo.dataCursos
 import com.example.cursos.Presentador.clsRegistrosPresentador
 import com.example.cursos.R
+import com.example.cursos.Modelo.obtenerUrlImagen
 
 class clsVerRegistros : AppCompatActivity() {
 
