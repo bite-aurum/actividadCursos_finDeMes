@@ -43,8 +43,11 @@ class clsCatalogoCursosPresentador(val vista: MainActivity)
             }
         }
     }
-    fun seleccionarCurso(curso: dataCursos){
-        vista.mostrarDetalleCurso(curso)
+    fun seleccionarCurso(curso: dataCursos) {
+        vista.abrirDetalleCurso(
+            curso.id, curso.nombre, curso.codigo, curso.descripcion,
+            curso.edificio, curso.salon, curso.totalHoras,
+            curso.diasAtencion, curso.horaInicio, curso.horaFin
+        )
     }
-
 }
