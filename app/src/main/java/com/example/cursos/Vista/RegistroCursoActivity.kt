@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.example.cursos.Modelo.obtenerUrlImagen
 import com.example.cursos.Presentador.clsRegistroPresentador
 import com.example.cursos.R
 import java.util.Calendar
@@ -84,7 +85,7 @@ class RegistroCursoActivity : AppCompatActivity() {
 
     fun mostrarImagenCurso(urlImagen: String) {
         Glide.with(this)
-            .load(urlImagen)
+            .load(obtenerUrlImagen(urlImagen))
             .placeholder(R.drawable.ic_launcher_background)
             .error(R.drawable.ic_launcher_background)
             .into(imgCurso)

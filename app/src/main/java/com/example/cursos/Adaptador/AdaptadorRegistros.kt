@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cursos.Modelo.dataCursos
+import com.example.cursos.Modelo.obtenerUrlImagen
 import com.example.cursos.R
 import com.example.cursos.Vista.clsVerRegistros
 
@@ -46,7 +47,7 @@ class AdaptadorRegistros(
 
         if (!curso.imagen.isNullOrEmpty()) {
             Glide.with(holder.itemView.context)
-                .load(curso.imagen)
+                .load(obtenerUrlImagen(curso.imagen)) // ⬅️ Cambiar curso.imagen por obtenerUrlImagen(curso.imagen)
                 .placeholder(android.R.drawable.ic_menu_gallery)
                 .error(android.R.drawable.stat_notify_error)
                 .into(holder.imgCurso)

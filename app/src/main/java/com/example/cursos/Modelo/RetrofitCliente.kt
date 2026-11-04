@@ -26,3 +26,9 @@ object RetrofitCliente {
 
     }
 }
+fun obtenerUrlImagen(imagen: String?): String {
+    if (imagen.isNullOrEmpty()) return ""
+    if (imagen.startsWith("http://") || imagen.startsWith("https://")) return imagen
+    val ruta = if (imagen.startsWith("img/")) imagen else "img/$imagen"
+    return "http://10.75.1.98:8080/cursos_api/$ruta"
+}
