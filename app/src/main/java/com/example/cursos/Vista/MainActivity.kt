@@ -79,16 +79,28 @@ class MainActivity : AppCompatActivity() {
         adapter.actualizarLista(cursos)
     }
 
-    fun mostrarDetalleCurso(curso: dataCursos) {
-        val intent = Intent(this, DetalleCursoActivity::class.java).apply {
-            putExtra("ID_CURSO", curso.id)
-            putExtra("NOMBRE_CURSO", curso.nombre)
-            putExtra("CODIGO_CURSO", curso.codigo)
-            putExtra("IMAGEN_CURSO", curso.imagen)
-        }
-        startActivity(intent)
+    fun seleccionarCurso(curso: dataCursos) {
+        presenter.seleccionarCurso(curso)
     }
 
+    fun abrirDetalleCurso(
+        id: Int, nombre: String, codigo: String, descripcion: String,
+        edificio: String, salon: String, totalHoras: Int,
+        dias: String, horaInicio: String, horaFin: String
+    ) {
+        val intent = Intent(this, DetalleCursoActivity::class.java)
+        intent.putExtra("ID_CURSO", id)
+        intent.putExtra("NOMBRE_CURSO", nombre)
+        intent.putExtra("CODIGO_CURSO", codigo)
+        intent.putExtra("DESCRIPCION_CURSO", descripcion)
+        intent.putExtra("EDIFICIO_CURSO", edificio)
+        intent.putExtra("SALON_CURSO", salon)
+        intent.putExtra("TOTAL_HORAS_CURSO", totalHoras)
+        intent.putExtra("DIAS_ATENCION_CURSO", dias)
+        intent.putExtra("HORA_INICIO_CURSO", horaInicio)
+        intent.putExtra("HORA_FIN_CURSO", horaFin)
+        startActivity(intent)
+    }
     fun mostrarError(mensaje: String) {
         Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
     }

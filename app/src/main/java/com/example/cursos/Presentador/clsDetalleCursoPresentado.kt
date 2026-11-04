@@ -14,7 +14,7 @@ class clsDetalleCursoPresentador(private val vista: DetalleCursoActivity) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
                 val curso: dataCursoDetalle = modelo.obtenerDetalleCurso(cursoId)
-                vista.mostrarDetalle(curso)
+                vista.mostrarImagen(curso.imagen)
             } catch (e: Exception) {
                 vista.mostrarError("Error al cargar detalle: " + e.localizedMessage)
             }

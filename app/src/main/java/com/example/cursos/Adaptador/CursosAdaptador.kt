@@ -24,6 +24,7 @@ class CursosAdaptador(
         val imgCurso: ImageView = itemView.findViewById(R.id.imgCurso)
         val btnRegistrarse: Button = itemView.findViewById(R.id.btnRegistrarse)
         val btnVerDetalle: Button = itemView.findViewById(R.id.btnVerDetalle)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CursoViewHolder {
@@ -48,13 +49,18 @@ class CursosAdaptador(
             activity.abrirRegistroCurso(curso)
         }
 
-        holder.btnVerDetalle.setOnClickListener {
-            activity.mostrarDetalleCurso(curso)
-        }
+        holder.btnVerDetalle.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                activity.seleccionarCurso(curso)
+            }
+        })
 
-        holder.itemView.setOnClickListener {
-            activity.mostrarDetalleCurso(curso)
-        }
+        holder.itemView.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                activity.seleccionarCurso(curso)
+            }
+        })
+
     }
 
     override fun getItemCount(): Int = listaCursos.size
